@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Cocktail } from '../../shared/cocktail.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { Cocktail } from '../../shared/cocktail.model';
 })
 export class CocktailsListComponent implements OnInit {
 
-
+	@Input() public cocktails: Cocktail[];
 
   constructor() { }
 

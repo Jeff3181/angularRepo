@@ -15,10 +15,12 @@ export class CocktailContainerComponent implements OnInit {
 		new Cocktail('Sour', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/A_whiskey_sour_in_the_hand.jpg/220px-A_whiskey_sour_in_the_hand.jpg', 'A sour is a traditional family of mixed drinks. Common examples of sours are the margarita and the sidecar. Sours belong to one of the old families of original cocktails and are described by Jerry Thomas in his 1862 book How to Mix Drinks.' )
 	];
 
+  public cocktail: Cocktail;
 
   constructor() { }
 
   ngOnInit() {
+    this.cocktail = this.cocktails[0];
   }
 
 }
