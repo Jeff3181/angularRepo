@@ -1,0 +1,16 @@
+h2{
+	color: grey;
+	text-align: right;
+}
+
+.bluesquare{
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+}
+
+.redsquare{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+}
