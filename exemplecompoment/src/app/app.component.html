@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-6 mx-auto">
+		<div class="row" style="margin-top:150px;">
+			<input type="text" class="form-control col-9" #f />
+			<button class="btn btn-primary col-3" (click)="addFruit(f)">Ajouter</button>
+		</div>
+	</div>
+</div>
+
+<div class="row" style="margin-top:100px;">
+	<ul class="list-group list-group-flush col-8 mx-auto">
+		<!-- [f]="f" => [f]= binding de fruit dans le component fils sur l'alias f passé en param de l'input
+			"f" = objet fruit en cours dans la boucle ngFor-->
+		<app-item *ngFor="let f of fruits; let i = index;" (deleteF)="deleteFruit($event)">
+			<!-- Reférence #p utilisée pour @ContentChild('p') dans item-->
+			<p #p>{{fruits[i]}}</p>
+		</app-item>
+	</ul>
+</div>
