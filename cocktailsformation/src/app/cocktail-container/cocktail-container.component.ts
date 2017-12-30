@@ -17,6 +17,10 @@ export class CocktailContainerComponent implements OnInit {
 
   public cocktail: Cocktail;
 
+  public updateCocktail(index: number): void{
+    this.cocktail = this.cocktails[index];
+  }
+
   constructor() { }
 
   ngOnInit() {
