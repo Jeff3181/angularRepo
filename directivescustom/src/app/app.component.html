@@ -7,7 +7,7 @@
       <!-- appColor is a custom directive / A directive is an instruction passed to Angular-->
       <li [appColor]="{text:'purple', background:'blue'}" class="list-group-item">Item 2</li>
       <li class="list-group-item">Item 3</li>
-      <li class="list-group-item">Item 4</li>
+      <li *appNgIfCustom="false" class="list-group-item">Item 4</li>
     </ul>
   </div>
 </div>
