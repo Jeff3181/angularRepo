@@ -1,6 +1,6 @@
 export class PanierService {
 
-	public panier: string[];
+	public panier: string[] = [];
 
 	constructor(){
 
