@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AddComponent } from './add/add.component';
 import { PanierComponent } from './panier/panier.component';
+import { LogService } from './shared/services/log.service';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { PanierComponent } from './panier/panier.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

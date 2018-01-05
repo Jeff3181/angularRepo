@@ -16,7 +16,8 @@ export class AddComponent implements OnInit {
   	}
 
   	add(){
-  		this.panierService.panier.push(this.aliment);
+  		//this.panierService.panier.push(this.aliment);
+  		this.panierService.add(this.aliment);
   		this.aliment ='';
   		console.log(this.panierService.panier);
   	}
