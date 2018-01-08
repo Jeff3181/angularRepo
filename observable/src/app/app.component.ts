@@ -32,5 +32,6 @@ export class AppComponent implements OnInit {
   	})
   	obs.subscribe(observer);
   }
-
+  //Complément doc rxjs https://makina-corpus.com/blog/metier/2017/premiers-pas-avec-rxjs-dans-angular
+  
 }
