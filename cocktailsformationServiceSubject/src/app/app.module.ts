@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CocktailsListComponent } from './cocktail-container/cocktails-list/cocktails-list.component';
 import { CocktailsDetailsComponent } from './cocktail-container/cocktails-details/cocktails-details.component';
 import { CocktailContainerComponent } from './cocktail-container/cocktail-container.component';
+import { ActiveDirective } from './shared/directives/active.directive';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CocktailContainerComponent } from './cocktail-container/cocktail-contai
     HeaderComponent,
     CocktailsListComponent,
     CocktailsDetailsComponent,
-    CocktailContainerComponent
+    CocktailContainerComponent,
+    ActiveDirective
   ],
   imports: [
     BrowserModule,
