@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-user',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+	public users: any[]=[
+		{
+			name: 'Jean',
+			id: 1
+		},
+		{
+			name: 'Paul',
+			id:2
+		},
+		{
+			name: 'Julie',
+			id: 3
+		}
+	];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
+  redi(name: string, id: number){
+  	this.router.navigate(['/user', id], {queryParams: {
+  		name: name
+  	},
+  	fragment: 'bonjour'
+  })
+  }
 }

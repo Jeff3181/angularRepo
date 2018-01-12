@@ -5,10 +5,12 @@ import { Route, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UserComponent } from './user/user.component';
+import { UserDetailsComponent } from './user.details/user.details.component';
 
 const APP_ROUTE: Route[] = [
   { path:'', component:HomepageComponent },
   { path:'users', component: UserComponent}
+  { path: 'user/:id', component: UserDetailsComponent }
 ]
 
 
@@ -16,7 +18,8 @@ const APP_ROUTE: Route[] = [
   declarations: [
     AppComponent,
     HomepageComponent,
-    UserComponent
+    UserComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
