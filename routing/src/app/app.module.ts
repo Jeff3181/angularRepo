@@ -9,9 +9,13 @@ import { UserDetailsComponent } from './user.details/user.details.component';
 
 const APP_ROUTE: Route[] = [
   { path:'', component:HomepageComponent },
-  { path:'users', component: UserComponent}
-  { path: 'user/:id', component: UserDetailsComponent }
-]
+  { path:'users', component: UserComponent, 
+    children:[
+      { path: ':id', component: UserDetailsComponent }
+    ]
+  },
+  { path: '**', redirectTo: '/users' }
+];
 
 
 @NgModule({

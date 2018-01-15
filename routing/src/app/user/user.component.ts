@@ -30,7 +30,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   }
   redi(name: string, id: number){
-  	this.router.navigate(['/user', id], {queryParams: {
+  	this.router.navigate(['/users', id], {queryParams: {
   		name: name
   	},
   	fragment: 'bonjour'
