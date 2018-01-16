@@ -1,21 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Route, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user.details/user.details.component';
+import { AppRouting } from './app.routing';
+import { AuthGuard} from './app.auth.guard';
+import { UserEditComponent } from './user.details/user-edit/user-edit.component';
 
-const APP_ROUTE: Route[] = [
-  { path:'', component:HomepageComponent },
-  { path:'users', component: UserComponent, 
-    children:[
-      { path: ':id', component: UserDetailsComponent }
-    ]
-  },
-  { path: '**', redirectTo: '/users' }
-];
 
 
 @NgModule({
@@ -23,13 +16,14 @@ const APP_ROUTE: Route[] = [
     AppComponent,
     HomepageComponent,
     UserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(APP_ROUTE)
+    AppRouting
   ],
-  providers: [],
+  providers: [ AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

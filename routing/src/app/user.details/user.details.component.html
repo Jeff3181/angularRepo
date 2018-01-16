@@ -1,9 +1,11 @@
 <div class="col-12" style="margin-top:20px;padding:20px;">
-	<h3 class="col-12">User details: </h3>
+	<h3 class="col-12">User details: <button class="btn btn-success ml-auto" [routerLink]="['edit']">Edit</button> </h3>
 	<ul class="list-group">
 		<li class="list-group-item">Name : {{ name }}</li>
 		<li class="list-group-item">Id : {{ id }}</li>
 	</ul>
 	<hr>
 	<a [routerLink]="['/user', 42]">load id: 42</a>
+	<hr>
+	<router-outlet></router-outlet>
 </div>
