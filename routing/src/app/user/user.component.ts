@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 
@@ -25,9 +25,14 @@ export class UserComponent implements OnInit {
 		}
 	];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
+  	console.log (this.activatedRoute.data.subscribe(data => {
+  		console.log (data.user)
+  	}));
+
   }
   redi(name: string, id: number){
   	this.router.navigate(['/users', id], {queryParams: {
