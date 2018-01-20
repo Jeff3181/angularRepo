@@ -9,6 +9,4 @@ import { Cocktail } from './shared/models/cocktail.model';
 export class AppComponent {
   title = 'app';
 
-  cocktail = new Cocktail("mojito", "", "");
-
 }

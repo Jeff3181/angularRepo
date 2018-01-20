@@ -13,6 +13,7 @@ import { PanierComponent } from './panier/panier.component';
 import { IngredientsListComponent } from './panier/ingredients-list/ingredients-list.component';
 import { AppRoutingModule } from './app.routing';
 import { PanierService } from './shared/services/panier.service';
+import { CocktailEditComponent } from './cocktail-container/cocktail-edit/cocktail-edit.component';
 
 
 
@@ -26,7 +27,8 @@ import { PanierService } from './shared/services/panier.service';
     CocktailContainerComponent,
     ActiveDirective,
     PanierComponent,
-    IngredientsListComponent
+    IngredientsListComponent,
+    CocktailEditComponent
   ],
   imports: [
     BrowserModule,
