@@ -1,0 +1,33 @@
+<h1 class="text-center" style="margin-top:100px;"> Forms</h1>
+
+<div class="container">
+  <form [formGroup]='myForm' 
+  class="col-6 mx-auto" (ngSubmit)="submit()" >
+    
+    <div class="form-group">
+      <label>Username: </label>
+      <input formControlName="username" class="form-control" type="text"/>
+    </div>
+    <div class="form-group">
+      <label>Email: </label>
+      <input formControlName="email" class="form-control" type="email"/>
+    </div>
+    <div formArrayName="hobbies">
+      <label>Hobby: </label>
+      <button class="btn btn-success mr-auto" (click)="addHobby()"> Ajouter </button>
+      <div 
+        class="form-group"
+        *ngFor="let hobby of myForm.get('hobbies').controls;let i = index;">
+        <input class="form-control" [formControlName]="i" type="text"/>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label>Password: </label>
+      <input formControlName="password" class="form-control" type="password"/>
+    </div>
+    <input class="btn btn-primary" type="submit"/>
+  </form>
+</div>
+
