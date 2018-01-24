@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormControl, FormArray, Validators} from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators, FormBuilder} from '@angular/forms';
 import { Observable} from 'rxjs';
 
 @Component({
@@ -14,14 +14,31 @@ export class AppComponent implements OnInit{
 	public myForm: FormGroup;
   @ViewChild('confirm') public confirm: ElementRef;
 
+
+  constructor(private fb: FormBuilder){
+
+  }
+
   ngOnInit(){
-  	this.myForm = new FormGroup({
+  	
+    this.myForm = this.fb.group({
+      username:['', Validators.required],
+      email:[''],
+      hobbies: this.fb.array([]),
+      password: ['']
+    })
+
+    this.myForm.valueChanges.subscribe( value => console.log(value));
+    this.myForm.statusChanges.subscribe( status => console.log(status));
+
+
+    /*this.myForm = new FormGroup({
      
   		username: new FormControl(''),
   	  email: new FormControl(''),
       hobbies: new FormArray([]),
   		password: new FormControl(''),
-  	})
+  	})*/
   	console.log(this.myForm);
   	//SetValue tous les champs doivent être complétés
   	/*this.myForm.setValue({
@@ -52,4 +69,6 @@ export class AppComponent implements OnInit{
   //https://plnkr.co/edit/KeMUgUEYpUtZtB2ZTwGP?p=info
   //https://plnkr.co/edit/S7L8Mb0MLpxuU6J7ceiW?p=preview
   //https://plnkr.co/edit/4VfbUFOpK3LMUHHOoNX6?p=preview
+  //https://plnkr.co/edit/60avAkPc7KJgaF5hwx71?p=preview
+  //https://plnkr.co/edit/81BlHEv5vciXyElkK6Is?p=preview
 }
