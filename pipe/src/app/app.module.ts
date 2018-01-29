@@ -5,12 +5,14 @@ import { CbPipe } from './cb.pipe';
 
 
 import { AppComponent } from './app.component';
+import { PipepursetimpursComponent } from './pipepursetimpurs/pipepursetimpurs.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CbPipe
+    CbPipe,
+    PipepursetimpursComponent
   ],
   imports: [
     BrowserModule
