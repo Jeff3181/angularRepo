@@ -21,4 +21,6 @@ export class PipepursetimpursComponent implements OnInit {
   ngOnInit() {
   }
 
+  //comment
+
 }
