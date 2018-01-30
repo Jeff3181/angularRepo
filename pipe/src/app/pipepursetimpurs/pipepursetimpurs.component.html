@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
-		<input type="text" class="form-control col-10 mx-auto"/>
-		<h3 class="col-10 text-center mx-auto"></h3>
+		<button class="btn btn-success" (click)="names.push('Louisa')">Ajouter</button>
+		<input type="text" class="form-control col-10 mx-auto" [(ngModel)]="search"/>
+		<h3 *ngFor="let name of names | filter:search" class="col-10 text-center mx-auto">{{name}}</h3>
 	</div>
 </div>
