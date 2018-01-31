@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="text-center" style="margin-top:50px;">Service Http</h1>
+
+  <input type="text" class="form-control" [(ngModel)]="username" />
+  <hr>
+  <ul class="list-group">
+    <li *ngFor="let user of users" class="list-group-item">
+      id: {{ user.id}}<br/>
+      nom: {{ user.username}}<br/>
+      age: {{ user.age}}<br/>
+    </li>
+  </ul>
+  
+</div>
