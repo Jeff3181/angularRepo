@@ -1,4 +1,5 @@
 import { Component , OnInit} from '@angular/core';
+import { UserService} from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,35 +8,29 @@ import { Component , OnInit} from '@angular/core';
 })
 export class AppComponent implements OnInit{
 
-	public username: string;
-	private currentId: nmuber = 2;
-	public users = [{
-		id: 0,
-		username: "Louis",
-		age: 18
-	},{
-		id: 1,
-		username: "Paul",
-		age: 15
-	},{
-		id: 3,
-		username: "Jean",
-		age: 42
-	}]
+	public users: {name: string}[];
+	
+	public user: string;
+		
 
-	constructor(){}
+	constructor(private userService: UserService){}
 
 	ngOnInit(){
-		this.currentId = this.users.length -1;
+		this.userService.getUsers().subscribe(users =>{
+			console.log(users);
+			if (users){
+				this.users = users
+			}else{
+				this.users = [];
+			}
+		})
 	}
 	addUser(){
-		this.currentId++;
-		this.users.push({
-			id: this.currentId,
-			username: this.username,
-			age: 35
-		})
-		this.username= '';
+		this.users.push({name: this.user });
+		this.userService.createUsers(this.users).subscribe( res => {
+			this.user = '';
+			console.log(res);
+		});
 	}
 	//https://console.firebase.google.com/project/http-df271/database/http-df271/data
 }
