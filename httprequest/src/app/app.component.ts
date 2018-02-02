@@ -23,6 +23,8 @@ export class AppComponent implements OnInit{
 			}else{
 				this.users = [];
 			}
+		}, err =>{
+
 		})
 	}
 	addUser(){
