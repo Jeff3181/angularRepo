@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Cocktail } from '../models/cocktail.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Ingredient } from '../models/ingredient.model';
+import { HttpClient } from '@angular/common/http';
+
 
 
 
@@ -10,7 +12,21 @@ import { Ingredient } from '../models/ingredient.model';
 export class CocktailService {
 
 
-public cocktails: BehaviorSubject<Cocktail[]> =  new BehaviorSubject([
+	constructor(private http: HttpClient) {
+		this.initCocktails();
+		/*this.http.put('https://cocktails-fc1f7.firebaseio.com/cocktails.json',  this.cocktails.value )
+		.subscribe(res => console.log(res));*/
+	 }
+	public cocktails: BehaviorSubject<Cocktail[]> =  new BehaviorSubject(null);
+
+	initCocktails(): void{
+		this.http.get<Cocktail[]>('https://cocktails-fc1f7.firebaseio.com/cocktails.json').subscribe(cocktails =>{
+			this.cocktails.next(cocktails);
+		});
+	}
+//Code commenté permet de créer la base de données dans firebase
+//https://console.firebase.google.com/project/cocktails-fc1f7/database/cocktails-fc1f7/data
+/*public cocktails: BehaviorSubject<Cocktail[]> =  new BehaviorSubject([
 		new Cocktail('Mojito', 
 			'http://static.cuisineaz.com/610x610/i14978-recette-de-mojito.jpeg', 'Le mojito1, prononcé [moˈxito] en espagnol, est un cocktail à base de rhum, de citron vert et de feuilles de menthe fraîche, né à Cuba dans les années 1910 et inspiré du mint julep. Dans les pays francophones mojito est parfois prononcé morito, voire mohito.', 
 			[
@@ -33,12 +49,13 @@ public cocktails: BehaviorSubject<Cocktail[]> =  new BehaviorSubject([
 				new Ingredient('perrier',1),
 				new Ingredient('jus de fraise', 2)
 			 ])
-	]);
+	]);*/
 	
-	constructor() { }
 
-	getCocktail(index: number): Cocktail{
-		return this.cocktails.value[index];
+	getCocktail(index: number): Observable<Cocktail>{
+		return this.cocktails.filter( cocktails => cocktails != null)
+				.map( (cocktails: Cocktail[] ) => cocktails[index])
+		//return this.cocktails.value[index];
 	}
 
 	addCocktail(cocktail: Cocktail): void{
