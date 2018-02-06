@@ -7,7 +7,7 @@ import { CocktailEditComponent } from './cocktail-container/cocktail-edit/cockta
 
 const APP_ROUTE: Route[] = [
 	{path:'', redirectTo: 'cocktails', pathMatch:'full'},
-	{path: 'panier', component: PanierComponent}
+	{path:'panier', loadChildren:'app/panier/panier.module#PanierModule'}
 ];
 
 @NgModule({
