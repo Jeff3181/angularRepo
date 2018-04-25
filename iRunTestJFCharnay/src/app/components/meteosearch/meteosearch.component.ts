@@ -21,8 +21,8 @@ export class MeteosearchComponent implements OnInit {
 
   searchMeteo() {
     this.meteoService.getMeteo(this.city.nativeElement.value).subscribe( meteo => {
-      //this.meteoToDisplay = meteo;
-      meteo.console.log(meteo);
+      console.log(meteo);
+      this.meteoToDisplay = meteo;
     });
   }
 }
