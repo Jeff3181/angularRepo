@@ -1,0 +1,14 @@
+<div *ngIf="meteoToDisplay" class="container col-2">
+  <mat-card >
+    <h1 class="mat-h1">Météo de la ville de {{meteoToDisplay.name}}</h1>
+    <div class="meteoToDisplay">
+      <img [src]="getIcon()">
+      <mat-list>
+        <mat-list-item> Taux d'humidité: {{ meteoToDisplay.main.humidity}}</mat-list-item>
+        <mat-list-item> Minimale: {{ meteoToDisplay.main.temp_min}}°C </mat-list-item>
+        <mat-list-item> Maximale:{{ meteoToDisplay.main.temp_max}}°C </mat-list-item>
+        <mat-list-item> Temps: {{ meteoToDisplay.weather[0].main}} </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-card>
+</div>

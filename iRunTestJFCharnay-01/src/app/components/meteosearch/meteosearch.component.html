@@ -1,0 +1,13 @@
+<div>
+
+  <mat-card class="container col-2">
+    <form>
+      <mat-form-field>
+        <input #city color="primary" matInput placeholder="Taper le nom de la ville" />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" (click)='searchMeteo()' (keyup.enter)='searchMeteo()'>Rechercher</button>
+  </mat-card>
+
+  <app-meteoresult [meteoToDisplay]="meteoToDisplay"></app-meteoresult>
+</div>

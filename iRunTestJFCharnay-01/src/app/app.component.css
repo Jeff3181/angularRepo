@@ -1,0 +1,14 @@
+h1{
+  margin: auto;
+}
+
+
+.myContainer{
+  background-color: #0961f9;
+  color: white;
+  display: flex;
+}
+
+app-meteosearch{
+  margin-top: 2%;
+}
